@@ -1,0 +1,11 @@
+.title {
+    box-sizing: border-box;
+    color: white;
+    background-color: rgb(36, 32, 32);
+    text-align: center;
+    width: 100%;
+}
+
+.card-body {
+    border-color: black;
+}
