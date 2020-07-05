@@ -4,7 +4,7 @@ function cityOutput () {
     var cityId = document.querySelector("#cityId");
 
     fetch (
-        "https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,daily" +
+        'https://api.openweathermap.org/data/2.5/weather?q='+
         searchTerm +
         "#cityId" +
         cityId +
@@ -40,7 +40,9 @@ var formSubmitHandler = function(event) {
 
 cityFormEL.addEventListener("submit", formSubmitHandler)
 
-fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,daily&appid=00f364721c3c88adc95bd446bfd8b6cf")
+var cityId = document.querySelector('#cityId')
+
+fetch("https://api.openweathermap.org/data/2.5/weather?q=&appid=00f364721c3c88adc95bd446bfd8b6cf")
 .then(function(response) {
     return response.json();
 })
@@ -58,3 +60,4 @@ var displayWeather = function(data, city) {
         displayWeather(data, city)
     })
 };
+console.log(cityId)
