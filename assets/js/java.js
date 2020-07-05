@@ -4,7 +4,7 @@ function cityOutput () {
     var cityId = document.querySelector("#cityId");
 
     fetch (
-        'https://api.openweathermap.org/data/2.5/weather?q='+
+        "https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,daily" +
         searchTerm +
         "#cityId" +
         cityId +
@@ -14,7 +14,7 @@ function cityOutput () {
         return response.json();
     })
     .then(function(data){
-        console.log(data);
+        console.log(data[0]);
         var responseContainerEl = document.querySelector("#response-container");
         responseContainerEl.innerHTML = '';
     })
@@ -40,16 +40,14 @@ var formSubmitHandler = function(event) {
 
 cityFormEL.addEventListener("submit", formSubmitHandler)
 
-var cityId = document.querySelector('#cityId')
-
-fetch("https://api.openweathermap.org/data/2.5/weather?q=&appid=00f364721c3c88adc95bd446bfd8b6cf")
+fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,daily&appid=00f364721c3c88adc95bd446bfd8b6cf")
 .then(function(response) {
     return response.json();
 })
 .then(function(data){
     console.log(data);
-    var responseContainerEl = document.querySelector("#response-container");
-    responseContainerEl.innerHTML = '';
+    // var responseContainerEl = document.querySelector("#response-container");
+    // responseContainerEl.innerHTML = '';
 })
 
 // Displays weather
@@ -60,4 +58,3 @@ var displayWeather = function(data, city) {
         displayWeather(data, city)
     })
 };
-console.log(cityId)
